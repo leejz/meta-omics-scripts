@@ -19,8 +19,8 @@ Bash shell scripting (NERSC compatible scripts included) - scp, tar, cat, cut, h
 
 Version 1.0
 
-The MIT License (MIT)
-https://opensource.org/licenses/MIT
-Copyright (c) 2015 Jackson Lee
+The MIT License (MIT)   
+https://opensource.org/licenses/MIT   
+Copyright (c) 2015 Jackson Lee   
 
 gitub: leejz
