@@ -90,8 +90,8 @@ from re import escape
 print "Running..."
 
 if __name__ == '__main__':
-    parser = ArgumentParser(usage = "calculate_bin_stats.py -i data.file -o \
-out.file",
+    parser = ArgumentParser(usage = "search_combined_data.py -i data.file -q \
+query.tab -o out.prefix -i data.file -o out.file",
                             description=__doc__, 
                             formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("-i", "--input_filename", action="store", 
