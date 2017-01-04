@@ -16,14 +16,14 @@ shinyServer(function(input, output) {
   output$myPlotRGLF <- renderWebGL({
     bintext <-{}
     d3_unique_cluster <- unique(d3$svm.pred[d3$svm.pred != 0])
-    bkxPts <- d3$HPminus
-    bkyPts <- d3$HPplus
-    bkzPts <- d3$HP3
+    bkxPts <- d3$PC2
+    bkyPts <- d3$PC1
+    bkzPts <- d3$PC3
     
     d3subset <- d3[d3$svm.pred != 0 & d3$svm.pred %in% d3_unique_cluster[1:input$fbins],]
-    fgxPts <- d3subset$HPminus
-    fgyPts <- d3subset$HPplus
-    fgzPts <- d3subset$HP3
+    fgxPts <- d3subset$PC2
+    fgyPts <- d3subset$PC1
+    fgzPts <- d3subset$PC3
     fgcol <- d3_unique_cluster[d3subset$svm.pred]
       
     # Add a label in the center of each extracted bin
@@ -32,9 +32,9 @@ shinyServer(function(input, output) {
     palette(adjustcolor(gbr(dbspan+1), alpha.f = 1))
     for (i in 1:length(d3_unique_cluster)) {
       bintext <- rbind(bintext, c(as.character(d3_unique_cluster[i]),
-                                  mean(d3$HPminus[d3$svm.pred == d3_unique_cluster[i]]), 
-                                  mean(d3$HPplus[d3$svm.pred == d3_unique_cluster[i]]), 
-                                  mean(d3$HP3[d3$svm.pred == d3_unique_cluster[i]])))
+                                  mean(d3$PC2[d3$svm.pred == d3_unique_cluster[i]]), 
+                                  mean(d3$PC1[d3$svm.pred == d3_unique_cluster[i]]), 
+                                  mean(d3$PC3[d3$svm.pred == d3_unique_cluster[i]])))
     }
  
     #view in 3d  
